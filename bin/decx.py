@@ -94,6 +94,7 @@ while True:
             key = input("🔑 Enter the key: ")
             if not key:
                 print("⛔ No key entered.")
+                time.sleep(3)
                 continue
             try:
                 key = key.encode()
