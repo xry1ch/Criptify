@@ -86,8 +86,8 @@ while True:
             # Generate a new Fernet key
             key = generate_key()
             print("🔑 Key:", key.decode())
-            print("· Press Enter to continue...")
-            input()  # Waits for the user to press enter or any key
+            print("📑 Copy the Key and press Enter to continue...")
+            input()  # Waits for the user to press enter
             print("")
         elif key_choice == '2':
             # Ask the user for a key
@@ -117,7 +117,7 @@ while True:
             print(f"🔒 Encrypted: {filename}")
 
             # Delete the original file
-            os.remove(filename)
+            os.unlink(filename)
 
             time.sleep(3)
 
@@ -151,7 +151,7 @@ while True:
                 print("🔓 Decrypted file:", decrypted_file)
 
                 # Delete the original encrypted file
-                os.remove(filename)
+                os.unlink(filename)
 
                 time.sleep(3)
 
