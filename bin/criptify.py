@@ -66,7 +66,6 @@ while True:
     clear()
     print(logo)
     # Ask the user if they want to encrypt or decrypt files
-    # Ask the user if they want to encrypt or decrypt files
     print("🔹1. Encrypt files.")
     print("🔹2. Decrypt files.")
     print("🔹Q. Quit.")
@@ -75,6 +74,9 @@ while True:
         "⚡ Enter your choice: ")
 
     if mode == '1':
+        # Clear the screen       
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(logo)
         # Ask the user to select a file to encrypt
         root = tk.Tk()
         root.withdraw()
@@ -84,9 +86,6 @@ while True:
             time.sleep(3)
             continue
         
-        # Clear the screen       
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(logo)
         # Ask the user if they want to generate a new key or enter an existing one
         print("🔹1. Generate a new key 🔑.")
         print("🔹2. Enter an existing key 🔑.")
@@ -139,6 +138,9 @@ while True:
             time.sleep(3)
 
     elif mode == '2':
+        # Clear the screen       
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(logo)
         # Ask the user to select files to decrypt
         root = tk.Tk()
         root.withdraw()
@@ -147,20 +149,11 @@ while True:
             print("⛔ No files selected.")
             time.sleep(3)
             continue
-        # Clear the screen       
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print(logo)
+
         # Ask the user for the key
         key = input("🔑 Enter the key: ")
         if not key:
             print("⛔ No key entered.")
-            time.sleep(3)
-            continue
-        try:
-            key = key.encode()
-            fernet = Fernet(key)
-        except ValueError:
-            print("⛔ Invalid key. Please enter a valid Fernet key.")
             time.sleep(3)
             continue
 
