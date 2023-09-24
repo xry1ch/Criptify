@@ -66,8 +66,13 @@ while True:
     clear()
     print(logo)
     # Ask the user if they want to encrypt or decrypt files
+    # Ask the user if they want to encrypt or decrypt files
+    print("🔹1. Encrypt files.")
+    print("🔹2. Decrypt files.")
+    print("🔹Q. Quit.")
+    print(" ")
     mode = input(
-        "⚡ Enter 1 to encrypt files, 2 to decrypt files, or q to quit: ")
+        "⚡ Enter your choice: ")
 
     if mode == '1':
         # Ask the user to select a file to encrypt
@@ -79,10 +84,19 @@ while True:
             time.sleep(3)
             continue
         
+        # Clear the screen       
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(logo)
         # Ask the user if they want to generate a new key or enter an existing one
+        print("🔹1. Generate a new key 🔑.")
+        print("🔹2. Enter an existing key 🔑.")
+        print(" ")
         key_choice = input(
-            "⚡ Enter 1 to generate a new 🔑 or 2 to enter an existing 🔑: ")
+            "⚡ Enter your choice: ")
         if key_choice == '1':
+            # Clear the screen       
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(logo)
             # Generate a new Fernet key
             key = generate_key()
             print("🔑 Key:", key.decode())
@@ -90,6 +104,9 @@ while True:
             input()  # Waits for the user to press enter
             print("")
         elif key_choice == '2':
+            # Clear the screen       
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print(logo)
             # Ask the user for a key
             key = input("🔑 Enter the key: ")
             if not key:
@@ -130,11 +147,20 @@ while True:
             print("⛔ No files selected.")
             time.sleep(3)
             continue
-
+        # Clear the screen       
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(logo)
         # Ask the user for the key
         key = input("🔑 Enter the key: ")
         if not key:
             print("⛔ No key entered.")
+            time.sleep(3)
+            continue
+        try:
+            key = key.encode()
+            fernet = Fernet(key)
+        except ValueError:
+            print("⛔ Invalid key. Please enter a valid Fernet key.")
             time.sleep(3)
             continue
 
