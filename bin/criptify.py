@@ -110,19 +110,16 @@ while True:
             key = input("🔑 Enter the key: ")
             if not key:
                 print("⛔ No key entered.")
-                time.sleep(3)
                 continue
             try:
                 key = key.encode()
                 fernet = Fernet(key)
             except ValueError:
                 print("⛔ Invalid key. Please enter a valid Fernet key.")
-                time.sleep(3)
                 continue
         else:
             print(
                 "⚠️ Invalid choice. Please enter 1 to generate a new key or 2 to enter an existing key.")
-            time.sleep(3)
             continue
 
         for filename in filenames:
@@ -135,7 +132,7 @@ while True:
             # Delete the original file
             os.unlink(filename)
 
-            time.sleep(3)
+        time.sleep(3)
 
     elif mode == '2':
         # Clear the screen       
@@ -147,14 +144,12 @@ while True:
         filenames = filedialog.askopenfilenames()
         if not filenames:
             print("⛔ No files selected.")
-            time.sleep(3)
             continue
 
         # Ask the user for the key
         key = input("🔑 Enter the key: ")
         if not key:
             print("⛔ No key entered.")
-            time.sleep(3)
             continue
 
         # Decrypt the files
@@ -164,7 +159,6 @@ while True:
             if decrypted_file is None:
                 print(
                     f"⛔ Failed to decrypt the file {filename}. Please check the decryption key and try again.")
-                time.sleep(3)
             else:
                 # Print the decrypted file name
                 print("🔓 Decrypted file:", decrypted_file)
@@ -172,7 +166,7 @@ while True:
                 # Delete the original encrypted file
                 os.unlink(filename)
 
-                time.sleep(3)
+        time.sleep(3)
 
     elif mode == 'q':
         break
