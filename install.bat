@@ -1,1 +1,1 @@
-pip install cryptography tk
+pip install -r requirements.txt
