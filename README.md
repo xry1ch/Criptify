@@ -18,4 +18,4 @@ Criptify is a Python script that uses the Fernet encryption algorithm from the c
 - Download the latest release of the program from the [release](https://github.com/Wrynch/Criptify/releases/latest) page.
 - Unzip the downloaded file to a directory of your choice.
 - Run the install.bat script to install the required dependencies.
-- To use the program, run the launch.bat script. This will open a command prompt where you can enter commands to encrypt or decrypt files.
+- To use the program, run the launch.bat script.
